@@ -1,3 +1,3 @@
 #!/bin/bash
-nmap scanme.nmap.org
-/PATH/TO/diresearch.py -u scanme.nmap.org -e php
+nmap $1
+/path/to/dirsearch.py -u $1 -e php
