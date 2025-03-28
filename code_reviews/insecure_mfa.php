@@ -16,4 +16,4 @@ if (verify_2fa_code($_POST['code'])) { // if successful, the user will be redire
 
 // Considering the above implementation is secure, some instances of 
 // dangling issuance of the $_SESSION['authenticated'] after the first step of 
-// authentication will bypass the above code, as shown below.
+// authentication will bypass the above code.
