@@ -8,4 +8,6 @@ class Notes {
     }
 }
 
+$note = new Notes("Welcome to THM");
+$serialized_note = serialize($note);
 ?>
