@@ -36,3 +36,7 @@ case $2 in
     ;;
 esac
 echo "Generating report from output files..."
+TODAY=$(date)
+echo "This scan was created on $TODAY" > $DIRECTORY/report
+echo "Results for Nmap:" >> $DIRECTORY/report
+grep -E "^\s*\S+\s+\S+\s+\S+\s*$" $DIRECTORY/nmap >> $DIRECTORY/report
