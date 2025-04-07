@@ -20,7 +20,19 @@ crt_scan()
     echo "The results of cert parsing is stored in $DIRECTORY/crt."
 }
 case $2 in
-  nmap_only)
+  nmap-only)
     nmap_scan
     ;;
-    
+  dirsearch-only)
+    dirsearch_scan
+    ;;
+  crt-only)
+    crt_scan
+    ;;
+  *)
+    nmap_scan
+    dirsearch_scan
+    crt_scan
+    ;;
+esac
+echo "Generating report from output files..."
