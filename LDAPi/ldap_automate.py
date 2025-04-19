@@ -4,7 +4,7 @@ import string
 import time
 
 # Base URL
-url = 'http://10.10.173.8/blind.php'
+url = 'http://10.10.96.69/blind.php'
 
 # define the character set
 char_set = string.ascii_lowercase + string.ascii_uppercase + string.digits + "._!@#$%^&*()"
@@ -37,7 +37,7 @@ while successful_response_found:
 
         if paragraphs:
             successful_response_found = True
-            succesful_chars += char
+            successful_chars += char
             print(f"Successful character found: {char}")
             break
 
