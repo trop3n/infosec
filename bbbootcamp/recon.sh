@@ -52,3 +52,19 @@ report_domain(){
     jq -r ".[] | .name_value" $DIRECTORY/crt >> $DIRECTORY/report
   fi
 }
+if [ $INTERACTIVE ];then
+  INPUT="BLANK"
+  while [ $INPUT != "quit" ];do
+    echo "Please enter a domain"
+    read INPUT
+    if [ $INPUT != "quit" ]; then
+      scan_domain $INPUT
+      report_domain $INPUT
+    fi
+  done
+else
+  for i in "${@:$OPTIND:$#}";do
+    scan_domain $i
+    report_domain $i
+  done
+fi
