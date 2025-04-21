@@ -1,0 +1,1 @@
+var user = context.Users.FirstOrDefault(u => u.Username == username);
