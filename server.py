@@ -1,7 +1,7 @@
 from http.server import SimpleHTTPRequestHandler, HTTPServer
 from urllib.parse import unquote
 
-class CustomRequestHandler(SimpleHTTPRRequestHandler):
+class CustomRequestHandler(SimpleHTTPRequestHandler):
     def end_headers(self):
         self.send_header('Access-Control-Allow-Origin', '*') # allow requests from any origin
         self.send_header('Access-Control-Allow-Method', 'GET, POST, OPTIONS')
@@ -11,7 +11,7 @@ class CustomRequestHandler(SimpleHTTPRRequestHandler):
     def do_GET(self):
         self.send_responses(200)
         self.end_headers()
-        self.wfile.write(b'Hello, GET request'!)
+        self.wfile.write(b'Hello, GET request!')
 
     def do_POST(self):
         content_length = int(self.headers['Content-Length'])
