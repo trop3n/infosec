@@ -12,3 +12,9 @@ thread2 = threading.Thread(target=increase_by_10, name="Thread-2")
 #start threads
 thread1.start()
 thread2.start()
+
+# wait for both threads to finish
+thread1.join()
+thread2.join()
+
+print("Both threads have finished completely.")
