@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vulnerable Page</title>
+</head>
+<body>
+    <div id="greeting"></div>
+    <script>
+        const name = new URLSearchParams(window.location.search).get('name');
+        document.write("Hello, " + name);
+    </script>
+</body>
+</html>
