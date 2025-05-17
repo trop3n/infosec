@@ -1,0 +1,4 @@
+race-conditions/bin
+race-conditions/lib
+race-conditions/lib64
+race-conditions/pyvenv.cfg
