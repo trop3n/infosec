@@ -32,7 +32,14 @@ fs.createReadStream('subdomains.10000.txt')
   .on('end', () => {
 
     // after all of the DNS queries have completed, log the results
-  })
+    Promise.all(promises).then(function(results) {
+        results.forEach((result) => {
+            if (!!result.ip) {
+                console.log(result);
+            }
+        });
+    });
+  });
 
 /*
  * A simple function for brute forcing a list of subdomains
