@@ -1,5 +1,5 @@
 const dns = require('dns');
-const csv = require('csv')
+const csv = require('csv-parser');
 const fs = require('fs');
 const { resolve } = require('path');
 
