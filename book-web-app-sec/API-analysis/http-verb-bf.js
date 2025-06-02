@@ -11,6 +11,19 @@ const discoverHTTPVerbs = function(url) {
       const promise = new Promise((resolve, reject) => {
         const http = new XMLHttpRequest();
 
+        http.open(verb, url, true)
+        http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        /*
+         * If the request is successful, resolve the promise and
+         * include the status code in the result.
+         */
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            return resolve({ verb: verb, status: http.status });
+          }
+        }
+
         
       })
     })
