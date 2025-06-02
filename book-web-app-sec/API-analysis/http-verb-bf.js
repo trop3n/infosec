@@ -32,8 +32,12 @@ const discoverHTTPVerbs = function(url) {
         setTimeout(() => {
             return resolve({ verb: verb, status: -1 });
         }, 1000);
+        
+        // initiate the HTTP request
+        http.send({});
+      });
 
-        }
-      }) 
-    })
+      // add the promise object to the promises array
+      promises.push(promise);
+    });
 }
