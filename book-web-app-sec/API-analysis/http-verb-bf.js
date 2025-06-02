@@ -24,7 +24,16 @@ const discoverHTTPVerbs = function(url) {
           }
         }
 
-        
-      })
+        /*
+         * If the request is not successful, or does not complete in time, mark
+         * the request as unsuccessful. The timeout should be tweaked based on
+         * average response time.
+         */
+        setTimeout(() => {
+            return resolve({ verb: verb, status: -1 });
+        }, 1000);
+
+        }
+      }) 
     })
 }
