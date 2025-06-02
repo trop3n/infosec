@@ -40,4 +40,12 @@ const discoverHTTPVerbs = function(url) {
       // add the promise object to the promises array
       promises.push(promise);
     });
+
+    /*
+     * When all verbs have been attempted, log the results of their
+     * respective promises to the console.
+     */
+    Promise.all(promises).then(function(values) {
+      console.log(values);
+    });
 }
