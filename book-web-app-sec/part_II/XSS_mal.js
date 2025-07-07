@@ -1,4 +1,3 @@
-<script>
   /*
    * Get a list of all customers from the page.
    */
@@ -13,6 +12,8 @@
     customers.forEach((customer) => {
       customerData.push({
         firstName: customer.querySelector('.firstname').innerText,
-      })
-    })
-</script>
+        lastName: customer.querySelector('.lastname').innerText,
+        email: customer.querySelector('.email').innerText,
+        phone: customer.querySelector('.phone').innerText
+      });
+    });
