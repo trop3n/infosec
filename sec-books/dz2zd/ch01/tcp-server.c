@@ -22,7 +22,7 @@ void handleClient(int clientSocket) {
     }
 
     finalBuffer[offset] = '\0'; // Null-terminate the final buffer
-    printf("Received data: %n", finalBuffer);
+    printf("Received data: %s\n", finalBuffer);
 
     if (bytesRead == 0) {
         printf("Client disconnected\n");
@@ -60,7 +60,7 @@ int main(int argc, char **argv)
     // Continuously accept connections and handle them
     while (1) {
         // Accept a connection
-        clientSocket = accept(serverSocket, (struct sockaddrr*)&clientAddr, &addrLen);
+        clientSocket = accept(serverSocket, (struct sockaddr*)&clientAddr, &addrLen);
         if (clientSocket == -1) {
             perror("Error accepting connection");
             continue;
