@@ -32,5 +32,43 @@ void handleClient(int clientSocket) {
 
     // Close the client socket
     close(clientSocket);
+}
+
+int main(int argc, char **argv)
+{
+    int clientSocket;
+    int serverSocket;
+    struct sockaddr_in clientAddr;
+    struct sockaddr_in serverAddr;
+    socklen_t addrLen = sizeof(clientAddr);
+
+    // Create the socket
+    serverSocket = socket(AF_INET, SOCK_STREAM, 0);
+
+    // Set up the server address
+    memset(&serverAddr, 0, sizeof(serverAddr));
+    serverAddr.sin_family = AF_INET;
+    serverAddr.sin_port = htons(PORT_NUMBER);
+    serverAddr.sin_addr.s_addr = INADDR_ANY;
+
+    // Bind the socket to the address
+    bind(serverSocket, (struct sockaddr*)&serverAddr, sizeof(struct sockaddr));
+
+    // Start listening for incoming connections
+    listen(serverSocket, BACKLOG);
+
+    // Continuously accept connections and handle them
+    while (1) {
+        // Accept a connection
+        clientSocket = accept(serverSocket, (struct sockaddrr*)&clientAddr, &addrLen);
+        if (clientSocket == -1) {
+            perror("Error accepting connection");
+            continue;
+        }
+
+        // Handle the client in a separate function
+        handleClient(clientSocket);
     }
+
+    return 0;
 }
